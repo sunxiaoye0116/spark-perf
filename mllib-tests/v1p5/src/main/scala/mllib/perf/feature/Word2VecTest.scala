@@ -55,7 +55,8 @@ class Word2VecTest(sc: SparkContext) extends PerfTest {
   override def run(): JValue = {
     val start = System.currentTimeMillis()
     val numIterations = intOptionValue(NUM_ITERATIONS)
-    val numPartitions = math.ceil(math.pow(numIterations, 1.5)).toInt
+//     val numPartitions = math.ceil(math.pow(numIterations, 1.5)).toInt
+    val numPartitions = intOptionValue(NUM_PARTITIONS)
     val w2v = new Word2Vec()
       .setNumPartitions(numPartitions)
       .setNumIterations(numIterations)
